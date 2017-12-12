@@ -149,7 +149,6 @@ func resourceAwsDbParameterGroupRead(d *schema.ResourceData, meta interface{}) e
 	// Only include user customized parameters as there's hundreds of system/default ones
 	describeParametersOpts := rds.DescribeDBParametersInput{
 		DBParameterGroupName: aws.String(d.Id()),
-		Source:               aws.String("user"),
 	}
 
 	describeParametersResp, err := rdsconn.DescribeDBParameters(&describeParametersOpts)
